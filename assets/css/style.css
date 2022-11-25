@@ -629,6 +629,29 @@ section {
 .about .content p:last-child {
   margin-bottom: 0;
 }
+/*--------------------------------------------------------------
+# Theme
+--------------------------------------------------------------*/
+.theme .container {
+  background: #cc1616;
+  background-size: cover;
+  padding: 100px 60px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.theme h3 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.theme p {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
 
 /*--------------------------------------------------------------
 # Why Us
@@ -660,7 +683,8 @@ section {
 }
 
 .why-us .box p {
-  color: #aaaaaa;
+  color: #000;
+  font-family: "Raleway", sans-serif;
   font-size: 15px;
   margin: 0;
   padding: 0;
@@ -676,6 +700,48 @@ section {
 .why-us .box:hover h4,
 .why-us .box:hover p {
   color: #fff;
+}
+
+.why-us .box1 {
+  padding: 50px 30px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  transition: all ease-in-out 0.3s;
+  background-color: #cc1616;
+}
+
+.why-us .box1 span {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ed5b5b;
+}
+
+.why-us .box1 h4 {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0;
+  margin: 20px 0;
+  color: #fff;
+}
+
+.why-us .box1 p {
+  color: #fff;
+  font-family: ;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.why-us .box1:hover {
+  background: #fff;
+  padding: 30px 30px 70px 30px;
+  box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+}
+
+.why-us .box1:hover span,
+.why-us .box1:hover h4,
+.why-us .box1:hover p {
+  color: #000;
 }
 
 /*--------------------------------------------------------------
