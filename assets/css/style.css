@@ -518,12 +518,20 @@ h6 {
   border-color: #cc1616;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1124px) {
   #hero {
     background-attachment: fixed;
   }
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: -1;
+    opacity: 100%;
+  }
+  margin-right: 200px ;
 }
-
 @media (max-width: 768px) {
   #hero {
     text-align: center;
@@ -542,6 +550,14 @@ h6 {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
+  }
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: -1;
+    opacity: 100%;
   }
 }
 
@@ -726,7 +742,6 @@ section {
 
 .why-us .box1 p {
   color: #fff;
-  font-family: ;
   font-size: 15px;
   margin: 0;
   padding: 0;
