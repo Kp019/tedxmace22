@@ -432,10 +432,10 @@ h6 {
   position: fixed;
   right: 0;
   bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: auto;
   z-index: -1;
-  opacity: 70%;
+  opacity: 100%;
 }
 
 #hero {
@@ -587,6 +587,9 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+.about{
+  background-color: #FFFFFF;
+}
 .about .content h3 {
   font-weight: 600;
   font-size: 26px;
@@ -616,6 +619,7 @@ section {
 --------------------------------------------------------------*/
 .why-us {
   padding-top: 10px;
+  background-color: #FFFFFF;
 }
 
 .why-us .box {
@@ -662,7 +666,7 @@ section {
 # Clients
 --------------------------------------------------------------*/
 .clients {
-  background: #f2f2f2;
+  background: #ffffff;
   padding: 15px 0;
   text-align: center;
 }
@@ -689,7 +693,9 @@ section {
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
-
+.services{
+  background-color: #FFFFFF;
+}
 .services .services-full{
   display: flex;
   justify-content: center;
@@ -1106,6 +1112,9 @@ section {
 /*--------------------------------------------------------------
 # Team
 --------------------------------------------------------------*/
+.team{
+  background-color: #FFFFFF;
+}
 .team .member {
   text-align: center;
   margin-bottom: 20px;
