@@ -13,6 +13,8 @@
   <link href="assets/img/T icon.jpg" rel="icon">
   <link href="assets/img/T icon.jpg" rel="apple-touch-icon">
 
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -58,31 +60,31 @@
   <!--from-->
   <div class="container">
     
-    <form class="row g-3 mt-5 p-md-5 register">
+    <form class="row g-3 mt-5 p-md-5 register" id="form">
       <h1 class="m-3 mt-5 register-title"><strong>Register Now</strong></h1>
  
       <div class="col-md-4 m-3 txt_field">
         <label for="inputname4" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="inputname4">
+        <input type="text" class="form-control" id="firstname">
       </div>
       <div class="col-md-4 m-3 txt_field">
         <label for="inputname4" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="inputname4">
+        <input type="text" class="form-control" id="lastname">
       </div>
       <div class="col-md-4 m-3 txt_field">
         <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail4">
+        <input type="email" class="form-control" id="email">
       </div>
       <div class="col-md-4 m-3 txt_field">
         <label for="inputIos2" class="form-label">Institution of Study</label>
-        <input type="text" class="form-control" id="inputIos2">
+        <input type="text" class="form-control" id="Ios">
       </div><div class="col-md-4 m-3 txt_field">
         <label for="inputhelp2" class="form-label">Anything we can help you out with?</label>
-        <input type="text" class="form-control" id="inputhelp2">
+        <input type="text" class="form-control" id="help">
       </div>
       <div class="col-md-4 m-3">
         <label for="inputState" class="form-label">Food Preference</label>
-        <select id="inputState" class="form-select">
+        <select id="foodpref" class="form-select">
           <option >Veg</option>
           <option selected>Non-Veg</option>
         </select>
@@ -90,6 +92,35 @@
       <div class="col-md-6 m-3 register-btn">
         <button type="submit" class="btn btn-danger">Submit</button>
       </div>
+      <button id="rzp-button1">Pay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_XZNzsAR8fi6ciu", // Enter the Key ID generated from the Dashboard
+    "amount": "200", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    // "description": "Test Transaction",
+    "order_id": "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    // "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    // "prefill": {
+    //     "name": "Gaurav Kumar",
+    //     "email": "gaurav.kumar@example.com",
+    //     "contact": "9999999999"
+    // },
+    // "notes": {
+    //     "address": "Razorpay Corporate Office"
+    // },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
       
     </form>
 
@@ -169,6 +200,40 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script>
+    const form = document.getElementById('form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      firstname = document.getElementById('firstname').value;
+      lastname =  document.getElementById('lastname').value;
+      email = document.getElementById('email').value;
+      Ios = document.getElementById('Ios').value;
+      help = document.getElementById('help').value;
+      foodpref = document.getElementById('foodpref').value;
+      name = firstname+" "+lastname;
+      var data = {
+        "name": name,
+        "email": email,
+        "Ios":Ios,
+        "help":help,
+        "foodpref":foodpref
+      }
+      console.log(data);
+      axios.post('https://httpbin.org/post', data)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+      const formData = new FormData(e.target);
+      
+
+  // ...or output as an object
+  // console.log(Object.fromEntries(formData));
+
+      //console.log([...formData]);
+      // console.log("Hello");
+    })
+
+  </script>
+  
 </body>
 
 </html>
