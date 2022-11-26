@@ -1,0 +1,45 @@
+.register{
+    display: flex;
+    justify-content: center;
+    column-gap: 70px;
+}
+
+.register-title{
+    text-align: center;
+    padding-bottom: 60px ;
+}
+.register-content{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form .txt_field{
+    position: relative;
+    border-bottom: 2px solid rgb(120, 120, 120);
+}
+
+
+.register input{
+    border: none;
+    border-radius: 0;
+}
+
+.register label{
+    border: none;
+    pointer-events: none;
+
+}
+
+.register-btn{
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+
+.register input:focus{
+    box-shadow: none;
+}
