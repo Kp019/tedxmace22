@@ -197,6 +197,7 @@
         "institute":Ios,
         "question":help,
       }
+    });
 
       // let razorpayorderid = " ";
       // console.log(data);
@@ -208,6 +209,7 @@
       // })
       // .catch(err => console.log(err))
       console.log("Razorpay order id is "+razorpayorderid);
+      
       
 
       var options = {
@@ -229,7 +231,7 @@
           "theme": {
               "color": "#3399cc"
           }
-      };
+      }
       var rzp1 = new Razorpay(options);
       document.getElementById('rzp-button1').onclick = function(e){
           rzp1.open();
