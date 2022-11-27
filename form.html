@@ -208,7 +208,8 @@
 
       // let razorpayorderid = " ";
       // console.log(data);
-      let res = await axios.post("https://tedx22-backend.onrender.com/api/part/save", data);
+      // let res = await axios.post("https://tedx22-backend.onrender.com/api/part/save", data);
+      let res = await axios.post("http://localhost:3000/api/part/save", data);
       console.log(res);
       const razorpayorderid = res.data.data.razorpayorderid;
       // const razorpayorderid= "order_KlABEmD3D1PwTd";
@@ -221,11 +222,12 @@
         console.log('DUP:OC')
       }
       console.log("Razorpay order id is " + razorpayorderid);
+      console.log(razorpayorderid.split(" "));
 
 
 
       var options = {
-        "key": "rzp_test_u7azus9FJ46VlH", // Enter the Key ID generated from the Dashboard
+        "key": "rzp_live_mwoF5pqpHqFU8Z", // Enter the Key ID generated from the Dashboard
         "amount": "200", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
         "currency": "INR",
         "name": "TEDxMACE",
