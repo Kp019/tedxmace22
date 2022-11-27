@@ -197,12 +197,13 @@
         "institute":Ios,
         "question":help,
       }
-    });
+    
 
       // let razorpayorderid = " ";
       // console.log(data);
       let res = await axios.post("https://tedx22-backend.onrender.com/api/part/save", data);
       const razorpayorderid = res.data.data.razorpayorderid;
+     // const razorpayorderid= "order_KlABEmD3D1PwTd";
       // axios.post('http://localhost:3000/api/part/save', data)
       // .then(res => {
       //   razorpayorderid = res.data.data.razorpayorderid;
@@ -218,7 +219,8 @@
           "currency": "INR",
           "name": "Acme Corp",
           // "description": "Test Transaction",
-          "order_id": razorpayorderid, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+         "order_id": razorpayorderid, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        //  order_id:"order_KlABEmD3D1PwTd",
           // "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
           // "prefill": {
           //     "name": "Gaurav Kumar",
@@ -246,7 +248,7 @@
 
       //console.log([...formData]);
       // console.log("Hello");
-    })
+    });
 
   </script>
   
