@@ -200,7 +200,7 @@
 
       // let razorpayorderid = " ";
       // console.log(data);
-      let res = await axios.post("http://localhost:3000/api/part/save", data);
+      let res = await axios.post("https://tedx22-backend.onrender.com/api/part/save", data);
       const razorpayorderid = res.data.data.razorpayorderid;
       // axios.post('http://localhost:3000/api/part/save', data)
       // .then(res => {
