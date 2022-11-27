@@ -208,8 +208,8 @@
 
       // let razorpayorderid = " ";
       // console.log(data);
-      // let res = await axios.post("https://tedx22-backend.onrender.com/api/part/save", data);
-      let res = await axios.post("http://localhost:3000/api/part/save", data);
+      let res = await axios.post("https://tedx22-backend.onrender.com/api/part/save", data);
+      // let res = await axios.post("http://localhost:3000/api/part/save", data);
       console.log(res);
       const razorpayorderid = res.data.data.razorpayorderid;
       // const razorpayorderid= "order_KlABEmD3D1PwTd";
@@ -221,8 +221,6 @@
       if (res.data.data.duplicate) {
         console.log('DUP:OC')
       }
-      console.log("Razorpay order id is " + razorpayorderid);
-      console.log(razorpayorderid.split(" "));
 
 
 
@@ -233,7 +231,6 @@
         "name": "TEDxMACE",
         "description": "TEDxMACE",
         "order_id": razorpayorderid, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        //  order_id:"order_KlABEmD3D1PwTd",
         // "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
         "prefill": {
           "name": res.data.data.name,
@@ -247,6 +244,9 @@
       var rzp1 = await new Razorpay(options);
 
       rzp1.open();
+      rzp1.on('payment.captured', function (response) {
+      console.log(response);
+      });
       // const formData = new FormData(e.target);
 
 
