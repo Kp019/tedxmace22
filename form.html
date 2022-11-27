@@ -209,6 +209,9 @@
       //   razorpayorderid = res.data.data.razorpayorderid;
       // })
       // .catch(err => console.log(err))
+      if(res.data.data.duplicate){
+        console.log('DUP:OC')
+      }
       console.log("Razorpay order id is "+razorpayorderid);
       
       
