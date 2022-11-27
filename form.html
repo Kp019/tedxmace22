@@ -202,6 +202,7 @@
       // let razorpayorderid = " ";
       // console.log(data);
       let res = await axios.post("https://tedx22-backend.onrender.com/api/part/save", data);
+      console.log(res);
       const razorpayorderid = res.data.data.razorpayorderid;
      // const razorpayorderid= "order_KlABEmD3D1PwTd";
       // axios.post('http://localhost:3000/api/part/save', data)
