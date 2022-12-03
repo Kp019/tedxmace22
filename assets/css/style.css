@@ -1135,6 +1135,19 @@ section {
 /*--------------------------------------------------------------
 # Pricing
 --------------------------------------------------------------*/
+.pricing{
+  background-color: white;
+}
+
+.pricing .box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}
+
 .pricing .box {
   padding: 20px;
   background: #f9f9f9;
