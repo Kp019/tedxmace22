@@ -229,6 +229,9 @@
       console.log(res);
       const razorpayorderid = res.data.data.razorpayorderid;
 
+      if(razorpayorderid){
+        alert("Payment Successful")
+      }
       
       // const razorpayorderid= "order_KlABEmD3D1PwTd";
       // axios.post('http://localhost:3000/api/part/save', data)
@@ -237,7 +240,7 @@
       // })
       // .catch(err => console.log(err))
       if (res.data.data.duplicate) {
-        alert("Payment successful")
+        alert("you have already registered")
       }
 
 
@@ -263,11 +266,11 @@
       rzp1.open();
       rzp1.on('payment.captured', function (response) {
         console.log(response);
-        console.log('PAYMENT CONFIRMED')
+        console.log('PAYMENT CONFIRMED');
       });
       rzp1.on('order.paid', function (response) {
         console.log(response);
-        console.log('PAYMENT CONFIRMED')
+        console.log('PAYMENT CONFIRMED');
 
       });
 
