@@ -229,12 +229,7 @@
       console.log(res);
       const razorpayorderid = res.data.data.razorpayorderid;
 
-      const valid = res.data.data.name;
-      if(vaild != "")
-        {
-          alert("Payment Sucessful")
-        }
-
+      
       // const razorpayorderid= "order_KlABEmD3D1PwTd";
       // axios.post('http://localhost:3000/api/part/save', data)
       // .then(res => {
@@ -242,7 +237,7 @@
       // })
       // .catch(err => console.log(err))
       if (res.data.data.duplicate) {
-        console.log('DUP:OC')
+        alert("Payment successful")
       }
 
 
