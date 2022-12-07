@@ -90,6 +90,9 @@
         <input type="text" class="form-control" id="phno">
       </div>
 
+      
+
+
       <div class="col-md-4 m-3">
         <label for="inputState" class="form-label">Food Preference</label>
         <select id="foodpref" class="form-select">
@@ -97,10 +100,21 @@
           <option selected>Non-Veg</option>
         </select>
       </div>
-      <div class="col-md-6 m-3 register-btn">
+
+      <div class="form-check col-md-4 m-3">
+        <label class="form-check-label" for="flexCheckDefault">Student at MACE</label>
+        <input class="form-check-input" type="checkbox"  id="myCheck" onclick="myFunction()">
+      </div>
+
+      
+      <div class="col-md-4 m-3 txt_field" id="text" style="display: none;">
+        <label for="inputclass"  class="form-label">Class (S1EEEA/S2ECB/S3R)</label>
+        <input type="text"  class="form-control" id="class">
+      </div>
+      
+      <div class=" register-btn">
         <button type="submit" class="btn btn-danger">Submit</button>
-        <button onclick="window.location.href='payment-status.html'" class="btn btn-danger mx-3">Payment Status</button>
-        <button id="rzp-button1" class="btn btn-danger mx-4">Pay</button> 
+        <button onclick="window.location.href='payment-status.html'" class="btn btn-danger mx-3">Check Payment Status</button>
       </div>
 
     </form>
@@ -214,6 +228,13 @@
       // let res = await axios.post("http://localhost:3000/api/part/save", data);
       console.log(res);
       const razorpayorderid = res.data.data.razorpayorderid;
+
+      const valid = res.data.data.name;
+      if(vaild != "")
+        {
+          alert("Payment Sucessful")
+        }
+
       // const razorpayorderid= "order_KlABEmD3D1PwTd";
       // axios.post('http://localhost:3000/api/part/save', data)
       // .then(res => {
@@ -244,7 +265,6 @@
         // },
       }
       var rzp1 = await new Razorpay(options);
-
       rzp1.open();
       rzp1.on('payment.captured', function (response) {
         console.log(response);
@@ -253,18 +273,24 @@
       rzp1.on('order.paid', function (response) {
         console.log(response);
         console.log('PAYMENT CONFIRMED')
+
       });
-      // const formData = new FormData(e.target);
 
+      
 
-
-      // ...or output as an object
-      // console.log(Object.fromEntries(formData));
-
-      //console.log([...formData]);
-      // console.log("Hello");
+      
     });
 
+    function myFunction() {
+      var checkBox = document.getElementById("myCheck");
+      var text = document.getElementById("text");
+      if (checkBox.checked == true){
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
+    }
+    
   </script>
 
 </body>
