@@ -89,10 +89,7 @@
         <label for="inputphno2" class="form-label">phone number</label>
         <input type="text" class="form-control" id="phno">
       </div>
-
       
-
-
       <div class="col-md-4 m-3">
         <label for="inputState" class="form-label">Food Preference</label>
         <select id="foodpref" class="form-select">
@@ -100,17 +97,18 @@
           <option selected>Non-Veg</option>
         </select>
       </div>
-
-      <div class="form-check col-md-4 m-3">
-        <label class="form-check-label" for="flexCheckDefault">Student at MACE</label>
-        <input class="form-check-input" type="checkbox"  id="myCheck" onclick="myFunction()">
+      
+      <div class="col-md-4 m-3 txt_field">
+        <label for="inputphno2" class="form-label" >Enter your class (If you are a MACEian)</label>
+        <input type="text" class="form-control" id="maceian-cls">
       </div>
+     
 
       
-      <div class="col-md-4 m-3 txt_field" id="text" style="display: none;">
+      <!-- <div class="col-md-4 m-3 txt_field" id="text" style="display: none;">
         <label for="inputclass"  class="form-label">Class (S1EEEA/S2ECB/S3R)</label>
         <input type="text"  class="form-control" id="class">
-      </div>
+      </div> -->
       
       <div class=" register-btn">
         <button type="submit" class="btn btn-danger">Submit</button>
@@ -212,26 +210,29 @@
       phno = document.getElementById('phno').value;
       help = document.getElementById('help').value;
       foodpref = document.getElementById('foodpref').value;
+      maceianCls = document.getElementById('maceian-cls').value;
       name = firstname + " " + lastname;
+      if (maceianCls.trim() == "") {
+        maceianCls = "NA";
+      }
       var data = {
         "name": name,
         "mailid": email,
         "phno": phno,
         "institute": Ios,
         "question": help,
+        "cls": maceianCls,
       }
-
-
+      
+      
       // let razorpayorderid = " ";
       // console.log(data);
       let res = await axios.post("https://tedx22-backend.onrender.com/api/part/save", data);
+      console.log("ok")
       // let res = await axios.post("http://localhost:3000/api/part/save", data);
       console.log(res);
       const razorpayorderid = res.data.data.razorpayorderid;
 
-      if(razorpayorderid){
-        alert("Payment Successful")
-      }
       
       // const razorpayorderid= "order_KlABEmD3D1PwTd";
       // axios.post('http://localhost:3000/api/part/save', data)
@@ -267,6 +268,7 @@
       rzp1.on('payment.captured', function (response) {
         console.log(response);
         console.log('PAYMENT CONFIRMED');
+        alert("Payment Confirmed");
       });
       rzp1.on('order.paid', function (response) {
         console.log(response);
