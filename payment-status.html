@@ -64,7 +64,7 @@
       <form class="row g-3 mt-5 p-md-5 register" id="form">
         <h1 class="m-3 mt-5 register-title"><strong>Payment Status</strong></h1>
         <div class="col-md-4 m-3 txt_field">
-            <label for="inputid4" class="form-label">Enter your id</label>
+            <label for="inputid4" class="form-label">Enter your Registered Mobile No.</label>
             <input type="text" class="form-control" id="part-id">
         </div>
         <div class="register-btn">
@@ -159,10 +159,24 @@
 
     <script>
         const form = document.getElementById('form');
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async(e) => {
             e.preventDefault();
             id = document.getElementById('part-id').value;
             console.log(id);
+         
+    
+        let stat= await axios.get(`https://tedx22-backend.onrender.com/api/part/id/${id}`);
+        console.log(stat.data.success);
+        
+        if(stat.data.success==true){
+            if(stat.data.data.paymentstatus=="paid"){
+                alert(`Hiii ${stat.data.data.name} your payment is done and your registered mobile no is: ${stat.data.data.phno}`);
+            }else{
+                alert(`Hiii ${stat.data.data.name} your payment is not done`);
+            }
+        }else{
+            alert("Invalid id");
+        }
         })
 
     </script>
